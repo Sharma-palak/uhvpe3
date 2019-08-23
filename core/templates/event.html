@@ -1,0 +1,70 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Events</title>
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+    <link rel="stylesheet" href="{%static 'css/animate.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poiret+One" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="container-fluid">
+         {% include 'header.html' %}
+<!--        <h1 class="evn">Events</h1>-->
+<!--        <h1 class="evnname">Event Name</h1>-->
+                {{ display_name|safe }}
+
+ <div class="col-lg-10 col-md-10 col-sm-12 mx-auto center_content" style="min-height:375px">
+{% if event %}
+{% for events in event %}
+
+<div class="col-lg-10 col-md-10 col-sm-12 mx-auto shadow" style="margin:50px 0px 50px 0px;">
+            <div class="row" style="padding:20px 0 20px 0;font-weight: 700">
+                <div class="col-12" > <h3 class="evnname"style="font-size:35px;font-weight:Bold;letter-spacing:2px;">{{events.name}}</h3></div>
+                <div class="col-12"  style="padding:px ;min-height:400px; width: inherit " >{{events.description|safe}}</div>
+            </div>
+
+        </div>
+{% endfor %}
+
+{% else %}
+<p class="heading_text"> No content.</p>
+{% endif %}
+ </div>
+</div>
+<div style="height:5rem"></div>
+
+
+      {% include 'footer.html' %}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+            (function($){
+	$('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+	  if (!$(this).next().hasClass('show')) {
+		$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+	  }
+	  var $subMenu = $(this).next(".dropdown-menu");
+	  $subMenu.toggleClass('show');
+
+	  $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+		$('.dropdown-submenu .show').removeClass("show");
+	  });
+
+	  return false;
+	});
+})(jQuery)
+        </script>
+</body>
+</html>
+
+

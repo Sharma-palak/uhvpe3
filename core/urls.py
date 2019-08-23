@@ -1,0 +1,41 @@
+from django.conf.urls import url
+from .views import (IndexView, DirectorMessageView, VisionAndMissionView, EstablishmentView, StructureView, SyllabusView,
+                    SyllabusView, BookAndAuthorsView, UnitWiseNotesView, VideoLecturesView, UnitWisePPTView, UTQuestionPaperView, 
+                    FDPView, StudentsWorkshopView, EventsView, ClubsView,
+                    ImpactStudentView, ImpactFacultyView, SaveContactView,Developer_View,Nature_Club_About,
+                    Nature_Club_Activity, Health_Club_About, Health_Club_Activity, Event_Page,
+                    Sharing_Of_FacultyMembers,Sharing_Of_Students,AluminiSharing,)
+                    
+
+urlpatterns = [
+    url(r'^director-message/$', DirectorMessageView.as_view(), name='director-message'),
+    url(r'^vision-and-mission/$', VisionAndMissionView.as_view(), name='vision-and-mission'),
+    url(r'^establishment/$', EstablishmentView.as_view(), name='establishment'),
+    url(r'^structure/$', StructureView.as_view(), name='structure'),
+    url(r'^syllabus/$', SyllabusView.as_view(), name='syllabus'),
+    url(r'^book-and-authors/$', BookAndAuthorsView.as_view(), name='book-and-authors'),
+    url(r'^unit-wise-notes/$', UnitWiseNotesView.as_view(), name='unit-wise-notes'),
+    url(r'^video-lectures/$', VideoLecturesView.as_view(), name='video-lectures'),
+    url(r'^unit-wise-ppt/$', UnitWisePPTView.as_view(), name='unit-wise-ppt'),
+    url(r'^UT-question-paper/$', UTQuestionPaperView.as_view(), name='UT-question-paper'),
+    # url(r'^previous-paper/$', PreviousPaperView.as_view(), name='previous-paper'),
+    url(r'^fdps/$', FDPView.as_view(), name='fdps'),
+    url(r'^students-workshop/$', StudentsWorkshopView.as_view(), name='students-workshop'),
+    url(r'^events/$', EventsView.as_view(), name='events'),
+    url(r'^clubs/$', ClubsView.as_view(), name='clubs'),
+    url(r'^impact-student/$', ImpactStudentView.as_view(), name='impact-student'),
+    url(r'^impact-faculty/$', ImpactFacultyView.as_view(), name='impact-faculty'),
+    url(r'^savecontact$', SaveContactView.as_view(), name='save_contact'),
+    url(r'^$', IndexView.as_view(), name='home'),
+    url(r'^developer/$',Developer_View.as_view() ,name ='developer'),
+    url(r'^club_about/$', Nature_Club_About.as_view(), name='club_about'),
+    url(r'^club_activity/$', Nature_Club_Activity.as_view(), name='club_activity'),
+    url(r'^health_about/$', Health_Club_About.as_view(), name='health_about'),
+    url(r'^health_activity/$', Health_Club_Activity.as_view(), name='health_activity'),
+    url(r'^event/(?P<id>[0-9]+)/$', Event_Page.as_view(), name='event_page'),
+    url(r'^sharing_students/$', Sharing_Of_Students.as_view(), name='sharing_students'),
+    url(r'^sharing_facultymember/$', Sharing_Of_FacultyMembers.as_view(), name='sharing_facultymember'),
+    url(r'^event/$', Event_Page.as_view(), name='event'),
+    url(r'^alumni-sharing/$', AluminiSharing.as_view(), name='alumni-sharing'),
+]
+
